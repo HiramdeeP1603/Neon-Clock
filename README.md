@@ -1,5 +1,3 @@
-## ✅ *Neon Digital Clock*
-
 # ⏰ Neon Digital Clock
 
 ![Status](https://img.shields.io/badge/Project-Completed-brightgreen?style=for-the-badge)
