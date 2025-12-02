@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /*block Text Selection */
+            user-select: none;
+            -webkit-user-select: none; /* For older versions of Chrome and Safari */
+            -moz-user-select: none; /* For older versions of Firefox */
+            -ms-user-select: none; /* For older versions of Internet Explorer */
+       
+        }
+
+        .box {
+            min-width: 60%;
+            height: 80%;
+            background: radial-gradient(rgba(0, 255, 255, 0.479), rgba(0, 255, 255, 0.267), rgba(0, 0, 0, 0.603), black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .clock {
+            color: rgb(189, 255, 255);
+            text-shadow: 2px 2px 15px aqua;
+            text-shadow: 0 0 10px aqua, 0 0 20px rgba(0, 255, 255, 0.822), 0 0 30px aqua;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: lighter;
+        }
+
+        #date {
+            margin: 0 0;
+            font-size: 200%;
+        }
+
+        #time {
+            margin: 0 0;
+            font-size: 800%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="clock">
+            <p id="date"></p>
+            <p id="time"></p>
+        </div>
+    </div>
+
+    <script>
+        const Week = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+        function updateTime() {
+            var now = new Date();
+
+            document.getElementById("time").innerText =
+                zeroPadding(now.getHours(), 2) + ' : ' +
+                zeroPadding(now.getMinutes(), 2) + ' : ' +
+                zeroPadding(now.getSeconds(), 2);
+
+            document.getElementById("date").innerText =
+                now.getFullYear() + ' - ' +
+                zeroPadding(now.getMonth() + 1, 2) + ' - ' +
+                zeroPadding(now.getDate(), 2) + ' - ' +
+                Week[now.getDay(), 2];
+        }
+
+        updateTime();
+        setInterval(updateTime, 1000);
+        function zeroPadding(num, digit) {
+            return String(num).padStart(digit, '0');
+        }
+    </script>
+</body>
+
+</html>
